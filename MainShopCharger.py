@@ -6,6 +6,8 @@ from datetime import datetime
 
 class MainShopCharger:
 
+    model = gensim.models.Word2Vec.load("./word2vec.gensim.model")
+
     def __init__(self):
         self.inserted_student_card = None
         self.last_charged_date = "チャージしていません"
@@ -42,8 +44,8 @@ class MainShopCharger:
     def main(self):
         # Main Sentences
         # 学生証インスタンスの作成
-        student_card_1 = StudentCard(0, "tut","Oita")
-        student_card_2 = StudentCard(1, "tempaku","Aichi")
+        student_card_1 = StudentCard(0, "tut","仁")
+        student_card_2 = StudentCard(1, "tempaku","義")
 
         # 初期残高の設定
         student_card_1.set_balance(1000)
@@ -68,6 +70,9 @@ class MainShopCharger:
 
         # 引き出し
         self.charge_money(-100)
+
+        result = MainShopCharger.model.most_similar(positive=['東京','フランス'],negative=['日本'])
+        print(result)
 
 if __name__ == '__main__':
     Charger = MainShopCharger()
