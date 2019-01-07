@@ -42,8 +42,8 @@ class MainShopCharger:
     def main(self):
         # Main Sentences
         # 学生証インスタンスの作成
-        student_card_1 = StudentCard(0, "tut")
-        student_card_2 = StudentCard(1, "tempaku")
+        student_card_1 = StudentCard(0, "tut","Oita")
+        student_card_2 = StudentCard(1, "tempaku","Aichi")
 
         # 初期残高の設定
         student_card_1.set_balance(1000)

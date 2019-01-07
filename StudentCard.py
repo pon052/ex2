@@ -5,11 +5,12 @@ from PIL import Image
 class StudentCard():
     CardList = []
 
-    def __init__(self, id, name):
+    def __init__(self, id, name,text):
         self.id = id
         self.name = name
         self.balance = 0
         self.image = Image.open("./default.png")
+        self.text = text
         self.last_charged_date = "チャージしていません"
         self.CardList.append(self)
 
@@ -33,3 +34,6 @@ class StudentCard():
 
     def set_image(self,image_path):
         self.image = Image.open(image_path)
+
+    def show_image(self):
+        self.image.show()
