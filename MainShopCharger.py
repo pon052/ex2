@@ -1,4 +1,6 @@
 # coding:utf-8
+import gensim
+
 from StudentCard import StudentCard
 from datetime import datetime
 
