@@ -23,6 +23,9 @@ class StudentCard():
     def get_charged_date(self):
         return self.last_charged_date
 
+    def get_text(self):
+        return self.text
+
     def set_balance(self, balance):
         self.balance = balance
 
