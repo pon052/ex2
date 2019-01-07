@@ -31,3 +31,5 @@ class StudentCard():
     def set_charged_date(self, date):
         self.last_charged_date = date
 
+    def set_image(self,image_path):
+        self.image = Image.open(image_path)
