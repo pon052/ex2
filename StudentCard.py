@@ -1,4 +1,7 @@
 # coding:utf-8
+
+from PIL import Image
+
 class StudentCard():
     CardList = []
 
@@ -6,6 +9,7 @@ class StudentCard():
         self.id = id
         self.name = name
         self.balance = 0
+        self.image = Image.open("./default.png")
         self.last_charged_date = "チャージしていません"
         self.CardList.append(self)
 
