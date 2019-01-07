@@ -1,9 +1,12 @@
 # coding:utf-8
 from StudentCard import StudentCard
+from datetime import datetime
 
 class MainShopCharger:
+
     def __init__(self):
         self.inserted_student_card = None
+        self.last_charged_date = "チャージしていません"
 
     def insert_card(self,num):
         self.inserted_student_card = StudentCard.CardList[num]
@@ -11,14 +14,23 @@ class MainShopCharger:
     def charge_money(self,money):
         if(self.inserted_student_card is not None):
             self.inserted_student_card.set_balance(self.inserted_student_card.get_balance() + money)
+            self.last_charged_date = datetime.now().strftime("%Y/%m/%d %H:%M:%S")
+            self.inserted_student_card.set_charged_date(datetime.now().strftime("%Y/%m/%d %H:%M:%S"))
             self.print_account_balance()
         else:
             print("学生証が挿入されていません．")
 
     def print_account_balance(self):
-        print("残高を表示します")
+        print("-----カード利用情報-----")
         print("学生名：" + self.inserted_student_card.get_name())
         print("残高：" + str(self.inserted_student_card.get_balance()))
+        print("最終利用日：" + self.inserted_student_card.get_charged_date())
+        print("")
+
+    def print_charger_information(self):
+        print("-----チャージャ利用情報-----")
+        print("最終利用日：" + self.last_charged_date)
+        print("")
 
     def main(self):
         # Main Sentences
